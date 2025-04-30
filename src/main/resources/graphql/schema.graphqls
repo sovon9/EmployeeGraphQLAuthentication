@@ -1,0 +1,36 @@
+type Employee {
+    id: ID!
+    name: String
+    department: Department
+    role: String
+}
+
+type Query {
+    getEmployee(id: ID!): Employee
+    getAllEmployees: [Employee]
+    getEmpByDeptName(department : String!) : Employee
+}
+
+type Department
+{
+   id:ID!
+   name:String
+}
+
+input AddEmployeeInput {
+  name: String!
+  departmentId: ID!
+  role: String
+}
+
+type Mutation {
+    addEmployee(input : AddEmployeeInput!): Employee
+}
+
+type Subscription {
+    employeeAdded: Employee
+}
+
+#type Subscription {
+#   subsTest : String
+#}
